@@ -2,8 +2,8 @@
 
 | Challenge Name | Category | Subcategory | Difficulty |
 | -------------- | -------- | ----------- | ---------- |
-| Wall Maria | pwn | Qemu Escape, Seccomp | Easy |
-| Wall Rose | pwn | Linux Kernel Module, UAF | Medium |
-| Wall Sina | pwn | Linux Userland, Format String Bug | Hard |
-| The Blade | reverse | Rust Reverse | Easy |
-| The Umi | pentest | HTTP, Redis, Sudo | Hard |
+| Wall Maria | pwn | Qemu Escape, Seccomp | ★★☆☆☆ |
+| Wall Rose | pwn | Linux Kernel Module, UAF | ★★★☆☆ |
+| Wall Sina | pwn | Linux Userland, Format String Bug | ★★★★☆ |
+| The Blade | reverse | Rust Reverse | ★☆☆☆☆ |
+| The Umi | pentest | Seccomp, HTTP, Redis, Sudo | ★★★★☆ |

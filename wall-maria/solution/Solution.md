@@ -2,7 +2,7 @@
 
 ## Vulnerability
 
-According to the source code or `maria_mmio_write`, you can set the `src` and `offset` freely through address 0x4 and 0x8.
+According to the source code of `maria_mmio_write`, you can set the `src` and `offset` freely through address 0x4 and 0x8.
 
 ```c
 case 0x04:

@@ -35,7 +35,7 @@ In addition to `msg_msg`, you can also overlap `data` with a `pipe_buffer` struc
 
 ## Exploitation
 
-So here's an idea: You can create a pipe with `out_fd` equals to the file descriptor of "/etc/passwd". Initially, it's apparent that you do not have the permission to write any data to it. However, if you manage to change `PIPE_BUF_CAN_MERGE`, you can somehow write to arbitrary files (including sensitives ones like `"/etc/passwd"`)
+So here's an idea: You can create a pipe with `out_fd` equals to the file descriptor of "/etc/passwd". Initially, it's apparent that you do not have the permission to write any data to it. However, if you manage to `splice(passwd_fd, &offset, pipefd[1], NULL, 1, 0)` and change `PIPE_BUF_CAN_MERGE`, you can somehow append arbitrary data to "/etc/passwd"!
 
 I won't go into the underlying C code here, since it requires plenty of pages. [This article](https://0x434b.dev/learning-linux-kernel-exploitation-part-2-cve-2022-0847/) explains it very well. 
 

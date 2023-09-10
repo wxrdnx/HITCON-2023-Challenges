@@ -1,0 +1,4 @@
+[submodule "the-blade/seccomp-shell"]
+	path = the-blade/seccomp-shell
+	url = git@github.com:wxrdnx/seccomp-shell.git
+    branch = flag

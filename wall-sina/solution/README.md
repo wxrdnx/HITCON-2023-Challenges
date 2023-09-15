@@ -29,7 +29,7 @@ The [`_dl_fini` function](https://elixir.bootlin.com/glibc/glibc-2.35/source/elf
 ...
 ```
 
-Note that `linkmap->l_info` is basically `*(&linkmap + 0)`, so changing the byte at `&linkmap` is essentially changing the address of `linkmap->l_info`. If `linkmap->l_info` is shifted by x bytes, then the offset of `FINI_ARRAY` (`l->l_info[DT_FINI_ARRAY]`) will also be shifted by x bytes. Accordingly, if there exists an address `addr` that you want to jump to after shifting x bytes from `FINI_ARRAY`, you can actually **call `addr`**.
+Note that `linkmap->l_addr` is basically `*(&linkmap + 0)`, so changing the byte at `&linkmap` is essentially changing the address of `linkmap->l_addr`. If `linkmap->l_addr` is shifted by x bytes, then the offset of `FINI_ARRAY` (`l->l_info[DT_FINI_ARRAY]`) will also be shifted by x bytes (the `FINI_ARRAY` is calculated as `l->l_addr + l->l_info[DT_FINI_ARRAY]->d_un.d_ptr`). Accordingly, if there exists an address `addr` that you want to jump to after shifting x bytes from `FINI_ARRAY`, you can actually **call `addr`**.
 
 In this challenge, I intentionally put a main address near `FINI_ARRAY`, so by changing the byte at `&linkmap` to `8`, you can actually invoke `main` again!
  
